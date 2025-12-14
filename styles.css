@@ -66,7 +66,7 @@ body{
     width: 100%;
     /* max-width: 656px; makes img small */
     border-radius: 12px;
-    margin-bottom: 40px;
+    margin-block-end: 40px; /*logical properties*/
 }
 .h1-main{
     padding-bottom: 24px;
@@ -114,16 +114,16 @@ body{
 }
 .ingredients, .instructions{
     margin-bottom: 32px;
-    margin-top: 32px;
+    padding-top: 32px;
 }
 .nutrition{
-    margin-top: 32px;
+    padding-top: 32px;
 }
-span{
+strong{
     color: var(--clr-stone-600);
     font: var(--text-4-ot-bold);
 }
-table th, .p-main, .li-prep, .li-ing, .li-inst, .ol-inst, .p-nutri{
+.p-main, .li-prep, .li-ing, .li-inst, .ol-inst, .p-nutri, table th{
     font: var(--text-4-ot-regular);
     color: var(--clr-stone-600);
     letter-spacing: var(--ls-0);
@@ -160,8 +160,8 @@ table th, .p-main, .li-prep, .li-ing, .li-inst, .ol-inst, .p-nutri{
     /*controls whether table cells share borders or stay separate*/
     width: 100%;
 }
-hr{
-    color: var(--clr-stone-150);
+.nutrition, .instructions{
+    border-top: 1px solid var(--clr-stone-150);
 }
 
 
