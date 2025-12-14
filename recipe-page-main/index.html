@@ -8,70 +8,287 @@
   
   <title>Frontend Mentor | Recipe page</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Young+Serif&display=swap" rel="stylesheet">
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+
+
+    /*CSS variables or global values*/
+    :root{
+      /* ...colors... */
+      --clr-white: hsl(0, 0%, 100%);
+      --clr-stone-100: hsl(30, 54%, 90%);
+      --clr-stone-150: hsl(30, 18%, 87%);
+      --clr-stone-600: hsl(30, 10%, 34%);
+      --clr-stone-900: hsl(24, 5%, 18%);
+      --clr-brown-800: hsl(14, 45%, 36%);
+      --clr-rose-800: hsl(332, 51%, 32%);
+      --clr-rose-50: hsl(330, 100%, 98%);
+      /* typography*/
+      --text-1-ys-regular: 40px/100% "Young Serif", serif;
+      --text-2-ys-regular: 28px/100% "Young Serif", serif;
+      --text-3-ot-semibold: 600 20px/100% "Outfit", sans-serif;
+      --text-4-ot-regular: 400 16px/150% "Outfit", sans-serif;
+      --text-4-ot-bold: 700 16px/150% "Outfit", sans-serif;
+      /* letter-spacing variable*/
+      --ls-0:0px;
+      /* --ls-40:40px;
+      --ls-24:24px;
+      --ls-12:12px;
+      --ls-32:32px;
+      --ls-16:16px;
+      --ls-8:8px; */
+    }
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;   /*readme explaination*/
+    }
+
+    .container{
+      max-width: 736px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--clr-white);
+      padding: 40px;
+      border-radius: 24px;
+      
+    }
+    body{
+      background-color: var(--clr-stone-100);  /*semicolon thingy readme*/
+      display: flex;
+      /* height: 100vh; */
+      min-height: 100vh;
+      /* align-items: center; for vertical centering if content is smaller than vh */
+      justify-content: center;
+      font-size: 16px;
+      margin: 128px 48px 128px 48px;
+    }
+    .image{
+      display: block;
+      width: 100%;
+      /* max-width: 656px; if we use this, img is being small readme */
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+    .h1-main{
+      padding-bottom: 24px;
+      font: var(--text-1-ys-regular);
+      letter-spacing: var(--ls-0);
+      color: var(--clr-stone-900);
+    }
+    .p-main{
+      padding-bottom: 32px;
+    }
+    .prep-time{
+      background-color: var(--clr-rose-50);
+      padding: 24px;
+    }
+    .prep-header{
+      color: var(--clr-rose-800);
+      font: var(--text-3-ot-semibold);
+      letter-spacing: var(--ls-0);
+      padding-bottom: 16px;
+    }
+    .li-prep, .li-ing, .li-inst{
+      padding-left: 16px; /*using margin will move bullets as well*/
+      /* margin-left: 8px; */
+    }
+    .li-prep:not(:last-child), .li-ing:not(:last-child), .li-inst:not(:last-child){   /*readme*/
+      margin-bottom: 8px;
+    }
+    .ul-prep, .ul-ing, .ol-inst{
+      padding-left: 24px; /*can also use margin*/
+    }
+    .li-ing::marker, .li-prep::marker, .li-inst::marker, table td{
+      color: var(--clr-rose-800);
+      font: var(--text-4-ot-bold);
+      letter-spacing: var(--ls-0);
+      /*marker bullet spacing correctly*/
+    }
+    .h2-ing, .h2-inst, .h2-nutri{
+      margin-bottom: 24px;
+      color: var(--clr-rose-800);
+      font: var(--text-2-ys-regular);
+      letter-spacing: var(--ls-0);
+    }
+    .ingredients, .instructions{
+      margin-bottom: 32px;
+      margin-top: 32px;
+    }
+    .nutrition{
+      margin-top: 32px;
+    }
+    span{
+      color: var(--clr-stone-600);
+      font: var(--text-4-ot-bold);
+    }
+    .p-main, .li-prep, .li-ing, .li-inst, .ol-inst, .p-nutri, table th{
+      font: var(--text-4-ot-regular);
+      color: var(--clr-stone-600);
+      letter-spacing: var(--ls-0);
+    }
+    .p-nutri{
+      padding-bottom: 24px;
+    }
+    .th-nutri{
+      width: 288px;
+      text-align: left;
+      letter-spacing: var(--ls-0);
+      padding-left: 32px;  
+      padding-right: 16px; 
+    }
+    .td-nutri{
+      width: 288px;
+      text-align: left;
+      letter-spacing: var(--ls-0);
+      padding-right: 32px;
+    }
+    .tr-nutri:not(:last-child){
+      border-bottom: 1px solid var(--clr-stone-150);    
+    }
+    .tr-nutri:not(:last-child) td,
+    .tr-nutri:not(:last-child) th{
+      padding-bottom: 12px;   /*readme code*/
+    }
+    .tr-nutri:not(:first-child) td,
+    .tr-nutri:not(:first-child) th{
+      padding-top: 12px;    /*readme code*/
+    }
+    .t-nutri{
+      border-collapse: collapse;
+      width: 100%;
+    }
+    hr{
+      color: var(--clr-stone-150);
+    }
+
+    
+    /* *{
+            outline: 1px solid red;
+
+    } */
+
+    /*for tablets*/
+
+    @media(max-width:768px){
+      .container{
+        max-width: 616px;
+        width: 100%;
+      }
+      .th-nutri, .td-nutri{
+        width: 228px;
+      }
+    }
+
+    /* for mobiles*/
+
+    @media(max-width:375px){
+      .image{
+        border-radius: 0px;
+        width: 100%;
+        height: auto;     /*readme*/
+      }
+      figure {
+        margin: 0 -40px; /* cancels container padding */
+      }
+      body{
+        margin: 0px;
+      }
+      .container{
+        /*max-width prevents growth beyond design size, 
+        width: 100% allows shrinking on small screens*/
+        max-width: 375px;
+        width: 100%;
+        border-radius: 0px;
+        padding: 0px 32px 40px 32px;
+      }
+
+    }
   </style>
 </head>
 <body>
+  <main class="container">
+    <figure>
+      <img class= "image" src="./assets/images/image-omelette.jpeg" alt="omelette image"/>
+    </figure>
+    <section class="rec-header">
+      <h1 class="h1-main">Simple Omelette Recipe</h1>
+      <p class="p-main">An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
+  to perfection, optionally filled with your choice of cheese, vegetables, or meats.</p>
+    </section>
 
-  Simple Omelette Recipe
+    <section class="prep-time">
+      <p class="prep-header">Preparation time</p>
+      <ul class="ul-prep">
+        <li class="li-prep"><strong>Total</strong>: Approximately 10 minutes</li>
+        <li class="li-prep"><strong>Preparation</strong>: 5 minutes</li>
+        <li class="li-prep"><strong>Cooking</strong>: 5 minutes</li>
+      </ul>
+    </section>
 
-  An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
-  to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+    <section class="ingredients">
+      <h2 class="h2-ing">Ingredients</h2>
+      <ul class="ul-ing">
+        <li class="li-ing">2-3 large eggs</li>
+        <li class="li-ing">Salt, to taste</li>
+        <li class="li-ing">Pepper, to taste</li>
+        <li class="li-ing">1 tablespoon of butter or oil</li>
+        <li class="li-ing">Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+      </ul>
+    </section>
+    <hr />
 
-  Preparation time
+    <section class="instructions">
+      <h2 class="h2-inst">Instructions</h2>
+      <ol class="ol-inst">
+        <li class="li-inst"><span>Beat the eggs</span>: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
+You can add a tablespoon of water or milk for a fluffier texture.</li>
+        <li class="li-inst"><span>Heat the pan</span>: Place a non-stick frying pan over medium heat and add butter or oil.
+</li>
+        <li class="li-inst"><span>Cook the omelette</span>: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
+the eggs evenly coat the surface.</li>
+        <li class="li-inst"><span>Add fillings (optional)</span>: When the eggs begin to set at the edges but are still slightly runny in the 
+middle, sprinkle your chosen fillings over one half of the omelette.</li>
+        <li class="li-inst"><span>Fold and serve</span>: As the omelette continues to cook, carefully lift one edge and fold it over the 
+fillings. Let it cook for another minute, then slide it onto a plate.</li>
+        <li class="li-inst"><span>Enjoy</span>: Serve hot, with additional salt and pepper if needed.</li>
+      </ol>
+    </section>
+    <hr />
 
-  Total: Approximately 10 minutes
-  Preparation: 5 minutes
-  Cooking: 5 minutes
+    <section class="nutrition">
+      <h2 class="h2-nutri">Nutrition</h2>
+      <p class="p-nutri">The table below shows nutritional values per serving without the additional fillings.</p>
+      <table class="t-nutri">
+        <tr class="tr-nutri">
+          <th class="th-nutri">Calories</th>
+          <td class="td-nutri">277kcal</td>
+        </tr>
+        <tr class="tr-nutri">
+          <th class="th-nutri">Carbs</th>
+          <td class="td-nutri">0g</td>
+        </tr>
+        <tr class="tr-nutri">
+          <th class="th-nutri">Protein</th>
+          <td class="td-nutri">20g</td>
+        </tr>
+        <tr class="tr-nutri">
+          <th class="th-nutri">Fat</th>
+          <td class="td-nutri">22g</td>
+        </tr>
+      </table>
+    </section>
 
-  Ingredients
+  </main>
 
-  2-3 large eggs
-  Salt, to taste
-  Pepper, to taste
-  1 tablespoon of butter or oil
-  Optional fillings: cheese, diced vegetables, cooked meats, herbs
-
-  Instructions
-
-  Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
-  You can add a tablespoon of water or milk for a fluffier texture.
-
-  Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.
-
-  Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
-  the eggs evenly coat the surface.
-
-  Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the 
-  middle, sprinkle your chosen fillings over one half of the omelette.
-
-  Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the 
-  fillings. Let it cook for another minute, then slide it onto a plate.
-
-  Enjoy: Serve hot, with additional salt and pepper if needed.
-
-  Nutrition
-
-  The table below shows nutritional values per serving without the additional fillings.
-
-  Calories
-  277kcal
-
-  Carbs
-  0g
-
-  Protein
-  20g
-
-  Fat
-  22g
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>
