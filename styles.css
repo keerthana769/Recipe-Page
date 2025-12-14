@@ -91,7 +91,7 @@ body{
     padding-left: 16px; /*using margin will move bullets as well*/
 }
 .li-prep:not(:last-child), .li-ing:not(:last-child), .li-inst:not(:last-child){
-    margin-bottom: 8px;
+    padding-bottom: 8px; /*using margin creates inconsistent bullet alignment*/
 }
 .ul-prep, .ul-ing, .ol-inst{
     padding-left: 24px; /*can also use margin*/
@@ -123,7 +123,7 @@ span{
     color: var(--clr-stone-600);
     font: var(--text-4-ot-bold);
 }
-.p-main, .li-prep, .li-ing, .li-inst, .ol-inst, .p-nutri, table th{
+table th, .p-main, .li-prep, .li-ing, .li-inst, .ol-inst, .p-nutri{
     font: var(--text-4-ot-regular);
     color: var(--clr-stone-600);
     letter-spacing: var(--ls-0);
@@ -172,9 +172,9 @@ hr{
 
 /*for tablets*/
 
-@media(max-width:768px){
+@media(max-width:768px){ /*768px*/
     .container{
-    max-width: 616px;
+    max-width: 616px;  /*616px*/
     width: 100%;
     }
     .th-nutri, .td-nutri{
