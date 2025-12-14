@@ -21,8 +21,8 @@ This project is a responsive recipe page built based on a Figma design. The main
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/keerthana769/Recipe-Page/)
-- Live Site URL: [Add live site URL here](https://keerthana769.github.io/Recipe-Page/)
+- Solution URL: [https://github.com/keerthana769/Recipe-Page/]
+- Live Site URL: [https://keerthana769.github.io/Recipe-Page/]
 
 ## My process
 
@@ -38,68 +38,65 @@ This project is a responsive recipe page built based on a Figma design. The main
 ### What I learned
 
 1. **CSS font shorthand**
-   ```css
-   :root{
-    --text-4-ot-bold: 700 16px/150% "Outfit", sans-serif;
-   }
-   ```
-syntax:
-font: <font-style> <font-weight> <font-size>/<line-height> <letter-spacing> <font-family>;
+  ```css
+  :root{
+  --text-4-ot-bold: 700 16px/150% "Outfit", sans-serif;
+  font: <font-style> <font-weight> <font-size>/<line-height> <letter-spacing> <font-family>;
+  }
+  ```
+  The font shorthand resets other font properties. If you need bold text, the font-weight must be included.
+  Fonts and required weights must be imported before using them in CSS variables.
 
-The font shorthand resets other font properties. If you need bold text, the font-weight must be included.
-Fonts and required weights must be imported before using them in CSS variables.
-
-2. **Table borders**
-border-collapse controls whether table cells share borders or stay separate. border-spacing works only when borders are separated.
-
-3. **Targeting the last table row**
-td:not(:last-child) checks cells within a row, not rows in a table. <td> has no concept of table order.
-Only <tr> understands row order.
+2. **Targeting the last table row**
   ```css
   tr:not(:last-child) {
     border-bottom: 1px solid var(--clr-stone-150);
   }
   ```
+  td:not(:last-child) checks cells within a row, not rows in a table. `<td>` has no concept of table order. 
+  Only `<tr>` understands row order.
 
-4. **Semantic HTML rule of thumb**
-If content has meaning → use a semantic element. If it’s purely for layout → use <div> or <span>
+3. **Semantic HTML rule of thumb**
 
-5. **Debugging Tip**
+  If content has meaning → use a semantic element. If it’s purely for layout → use `<div>` or `<span>`.
+
+4. **Debugging Tip**
   ```css
   * {
     outline: 1px solid red;
   }
   ```
-Helpful for visualizing spacing, overflow, and element boundaries.
+  Helpful for visualizing spacing, overflow, and element boundaries.
 
-6. **width and max-width are used together**
+5. **width and max-width are used together**
   ```css
   .container {
     width: 100%;
     max-width: 736px;
   }
   ```
-Large screens → width is capped at 736px. Small screens → container shrinks naturally
-width: 100% allows shrinking on small screens. Ensures responsiveness without media queries
+  Large screens → width is capped at 736px. Small screens → container shrinks naturally.
+  width: 100% allows shrinking on small screens. Ensures responsiveness without media queries.
 
-7. **Adding spacing between list items**
+6. **Adding spacing between list items**
   ```css
   ul {
-    list-style-position: outside; /* default browser-style indentation*/
+    list-style-position: outside;
   }
   ```
-global reset removes the default UL indentation completely, we need to add it back manually.
-inside → bullets move inside the content area (aligned with text)
+  global reset removes the default UL indentation completely, we need to add it back manually.
+  outside is default browser-style indentation.
+  inside → bullets move inside the content area (aligned with text).
 
-8. **Adding spacing between list items**
+7. **Adding spacing between list items**
   ```css
   li:not(:last-child) {
     margin-bottom: 8px;
   }
   ```
-<ul> is just a container — it does not represent individual rows/items. So we need to use <li>. CSS does not work like table cells here.
+  `<ul>` is just a container — it does not represent individual rows/items. So we need to use `<li>`. CSS does not work like table cells here.
 
-9. **How bullet color works**
+8. **How bullet color works**
   ```css
   li {
     color: red;
@@ -110,45 +107,45 @@ inside → bullets move inside the content area (aligned with text)
     font-size: 1.2rem;
   }
   ```
-Bullets inherit their color from the <li>, not from the <ul>.
+  Bullets inherit their color from the `<li>`, not from the `<ul>`.
 
-::marker allows styling list bullets directly. Only color and font-* properties are supported.
-Properties like margin and padding do not work for ::marker.
+  ::marker allows styling list bullets directly. Only color and font-* properties are supported.
+  Properties like margin and padding do not work for ::marker.
 
-10. **Using negative margins to offset container padding**
+9. **Using negative margins to offset container padding**
   ```css
   figure {
     margin: 0 -40px;
   }
   ```
-Negative horizontal margins cancel out container padding. Useful when an image needs to visually extend edge-to-edge.
+  Negative horizontal margins cancel out container padding. Useful when an image needs to visually extend edge-to-edge.
 
-11. **Making images responsive**
-```css
-img {
-  width: 100%;
-  height: auto;
-}
-```
-width: 100% scales the image relative to its container, not the screen.
-height: auto preserves the aspect ratio and prevents image stretching vertically.
+10. **Making images responsive**
+  ```css
+  img {
+    width: 100%;
+    height: auto;
+  }
+  ```
+  width: 100% scales the image relative to its container, not the screen.
+  height: auto preserves the aspect ratio and prevents image stretching vertically.
 
-12. **Adding borders between table rows**
-```css
-tr:not(:last-child) {
-  border-bottom: 1px solid var(--clr-stone-150);
-}
-```
-Adds dividers between rows while excluding the last row.
+11. **Adding borders between table rows**
+  ```css
+  tr:not(:last-child) {
+    border-bottom: 1px solid var(--clr-stone-150);
+  }
+  ```
+  Adds dividers between rows while excluding the last row.
 
-13. **Applying spacing inside table rows**
-```css
-tr:not(:first-child) td,
-tr:not(:first-child) th {
-  padding-top: 12px;
-}
-```
-<tr> elements do not support padding or margin. Spacing must be applied to <td> and <th> instead.
+12. **Applying spacing inside table rows**
+  ```css
+  tr:not(:first-child) td,
+  tr:not(:first-child) th {
+    padding-top: 12px;
+  }
+  ```
+  `<tr>` elements do not support padding or margin. Spacing must be applied to `<td>` and `<th>` instead.
 
 ### Continued development
 
