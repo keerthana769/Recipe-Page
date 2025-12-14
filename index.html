@@ -15,10 +15,12 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
 
-
-    /*CSS variables or global values*/
+    /*CSS variables or global values
+    ---------------------------------
+    Global variables are defined using :root
+    :root is a special selector that represents the <html> element.*/
     :root{
-      /* ...colors... */
+      /* colors */
       --clr-white: hsl(0, 0%, 100%);
       --clr-stone-100: hsl(30, 54%, 90%);
       --clr-stone-150: hsl(30, 18%, 87%);
@@ -27,29 +29,30 @@
       --clr-brown-800: hsl(14, 45%, 36%);
       --clr-rose-800: hsl(332, 51%, 32%);
       --clr-rose-50: hsl(330, 100%, 98%);
-      /* typography*/
+      /* typography */
       --text-1-ys-regular: 40px/100% "Young Serif", serif;
       --text-2-ys-regular: 28px/100% "Young Serif", serif;
       --text-3-ot-semibold: 600 20px/100% "Outfit", sans-serif;
       --text-4-ot-regular: 400 16px/150% "Outfit", sans-serif;
       --text-4-ot-bold: 700 16px/150% "Outfit", sans-serif;
-      /* letter-spacing variable*/
+      /* letter-spacing */
       --ls-0:0px;
-      /* --ls-40:40px;
-      --ls-24:24px;
-      --ls-12:12px;
-      --ls-32:32px;
-      --ls-16:16px;
-      --ls-8:8px; */
     }
+
+    /*Global Reset
+    ---------------
+    removes default browser spacing*/
     *{
       margin: 0;
       padding: 0;
     }
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;   /*readme explaination*/
+
+    /*Box sizing
+    -------------
+    By default, browsers use content-box, which adds padding outside the width.
+    border-box → width includes padding and borders*/
+    *, *::before, *::after {
+      box-sizing: border-box;  
     }
 
     .container{
@@ -63,7 +66,7 @@
       
     }
     body{
-      background-color: var(--clr-stone-100);  /*semicolon thingy readme*/
+      background-color: var(--clr-stone-100);
       display: flex;
       /* height: 100vh; */
       min-height: 100vh;
@@ -73,9 +76,9 @@
       margin: 128px 48px 128px 48px;
     }
     .image{
-      display: block;
+      display: block; /*removes inline spacing */
       width: 100%;
-      /* max-width: 656px; if we use this, img is being small readme */
+      /* max-width: 656px; makes img small */
       border-radius: 12px;
       margin-bottom: 40px;
     }
@@ -100,9 +103,8 @@
     }
     .li-prep, .li-ing, .li-inst{
       padding-left: 16px; /*using margin will move bullets as well*/
-      /* margin-left: 8px; */
     }
-    .li-prep:not(:last-child), .li-ing:not(:last-child), .li-inst:not(:last-child){   /*readme*/
+    .li-prep:not(:last-child), .li-ing:not(:last-child), .li-inst:not(:last-child){
       margin-bottom: 8px;
     }
     .ul-prep, .ul-ing, .ol-inst{
@@ -112,7 +114,6 @@
       color: var(--clr-rose-800);
       font: var(--text-4-ot-bold);
       letter-spacing: var(--ls-0);
-      /*marker bullet spacing correctly*/
     }
     .h2-ing, .h2-inst, .h2-nutri{
       margin-bottom: 24px;
@@ -157,11 +158,11 @@
     }
     .tr-nutri:not(:last-child) td,
     .tr-nutri:not(:last-child) th{
-      padding-bottom: 12px;   /*readme code*/
+      padding-bottom: 12px;
     }
     .tr-nutri:not(:first-child) td,
     .tr-nutri:not(:first-child) th{
-      padding-top: 12px;    /*readme code*/
+      padding-top: 12px;
     }
     .t-nutri{
       border-collapse: collapse;
@@ -195,7 +196,7 @@
       .image{
         border-radius: 0px;
         width: 100%;
-        height: auto;     /*readme*/
+        height: auto;
       }
       figure {
         margin: 0 -40px; /* cancels container padding */
@@ -204,8 +205,6 @@
         margin: 0px;
       }
       .container{
-        /*max-width prevents growth beyond design size, 
-        width: 100% allows shrinking on small screens*/
         max-width: 375px;
         width: 100%;
         border-radius: 0px;
