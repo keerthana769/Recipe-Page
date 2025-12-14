@@ -110,15 +110,20 @@
     .ul-prep, .ul-ing, .ol-inst{
       padding-left: 24px; /*can also use margin*/
     }
-    .li-ing::marker, .li-prep::marker, .li-inst::marker, table td{
+    .li-prep::marker{
       color: var(--clr-rose-800);
       font: var(--text-4-ot-bold);
       letter-spacing: var(--ls-0);
     }
     .h2-ing, .h2-inst, .h2-nutri{
       margin-bottom: 24px;
-      color: var(--clr-rose-800);
+      color: var(--clr-brown-800);
       font: var(--text-2-ys-regular);
+      letter-spacing: var(--ls-0);
+    }
+    .li-ing::marker, table td, .li-inst::marker{
+      color: var(--clr-brown-800);
+      font: var(--text-4-ot-bold);
       letter-spacing: var(--ls-0);
     }
     .ingredients, .instructions{
