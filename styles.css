@@ -191,7 +191,7 @@ strong{
     height: auto;
     }
     figure {
-    margin: 0 -40px; /* cancels container padding */
+    margin: 0 -32px; /* cancels container padding */
     }
     body{
     margin: 0px;

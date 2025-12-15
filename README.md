@@ -115,7 +115,7 @@ This project is a responsive recipe page built based on a Figma design. The main
 9. **Using negative margins to offset container padding**
   ```css
   figure {
-    margin: 0 -40px;
+    margin: 0 -32px;
   }
   ```
   Negative horizontal margins cancel out container padding. Useful when an image needs to visually extend edge-to-edge.
